@@ -19,7 +19,7 @@ import type {
   Referral, InsertReferral,
 } from "@shared/schema";
 
-const sqlite = new Database("data.db");
+const sqlite = new Database(process.env.DATABASE_PATH ?? "data.db");
 const db = drizzle(sqlite);
 
 // ── Create core tables ────────────────────────────────────────────────────────

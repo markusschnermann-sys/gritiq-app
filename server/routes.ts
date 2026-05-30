@@ -52,6 +52,11 @@ export function registerRoutes(httpServer: Server, app: Express) {
   // ── Auth middleware: all /api routes require a valid access token ─────────
   // /api/auth/* is registered BEFORE registerRoutes() in index.ts, so it never
   // reaches this middleware. /api/stripe/webhook is exempt (Stripe calls it without JWT).
+  // ── HEALTH (public — before JWT middleware) ────────────────────────────────────
+  app.get("/api/health", (_req, res) => {
+    res.json({ status: "ok", uptime: process.uptime(), timestamp: new Date().toISOString() });
+  });
+
   app.use("/api", (req, res, next) => {
     if (req.path === "/stripe/webhook") return next(); // Stripe webhook — no JWT
     return verifyAccessToken(req, res, next);

@@ -1,0 +1,52 @@
+services:
+  - type: web
+    name: gritiq-app
+    runtime: node
+    region: frankfurt
+    plan: free
+
+    # Build
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+
+    # Persistent disk for SQLite database
+    disk:
+      name: gritiq-data
+      mountPath: /data
+      sizeGB: 1
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /data/data.db
+      - key: PORT
+        fromService:
+          type: web
+          name: gritiq-app
+          property: port
+
+      # Generate securely: openssl rand -base64 48
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+
+      # Stripe (add your live or test keys in the Render dashboard)
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_ID_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_ID_ANNUAL
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+
+      # OpenAI — required for ATLAS AI Coach
+      - key: OPENAI_API_KEY
+        sync: false
+
+      # Public URL of your Render deployment (used for referral links + Stripe redirects)
+      # Example: https://gritiq-app.onrender.com
+      - key: APP_URL
+        sync: false
