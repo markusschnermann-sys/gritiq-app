@@ -1,0 +1,32 @@
+# ── GritIQ Caddyfile ──────────────────────────────────────────────────────────
+# Replace yourdomain.com with your actual domain (e.g. app.gritiq.de)
+# Caddy fetches a Let's Encrypt TLS certificate automatically.
+# For IP-only access (no domain), replace the domain with the IP address
+# and add `tls internal` below it for a self-signed cert.
+
+yourdomain.com {
+
+  # Security headers
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options    "nosniff"
+    X-Frame-Options           "DENY"
+    Referrer-Policy           "strict-origin-when-cross-origin"
+    -Server
+  }
+
+  # Gzip/Brotli compression
+  encode zstd gzip
+
+  # Proxy everything to the Express app
+  reverse_proxy app:5000 {
+    # Forward real IP to Express (needed for rate limiting)
+    header_up X-Real-IP {remote_host}
+    header_up X-Forwarded-For {remote_host}
+    header_up X-Forwarded-Proto {scheme}
+
+    # Health check for Caddy's upstream
+    health_uri    /api/health
+    health_interval 30s
+  }
+}

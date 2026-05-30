@@ -1,0 +1,43 @@
+services:
+
+  # ── GritIQ App ────────────────────────────────────────────────────────────
+  app:
+    build: .
+    container_name: gritiq-app
+    restart: unless-stopped
+    expose:
+      - "5000"
+    volumes:
+      - gritiq_data:/data          # SQLite persistence
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - DATABASE_PATH=/data/data.db
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    depends_on:
+      - caddy
+
+  # ── Caddy — Reverse Proxy + automatic HTTPS ───────────────────────────────
+  caddy:
+    image: caddy:2-alpine
+    container_name: gritiq-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"            # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data          # TLS certificates (Let's Encrypt)
+      - caddy_config:/config
+
+volumes:
+  gritiq_data:
+  caddy_data:
+  caddy_config:
