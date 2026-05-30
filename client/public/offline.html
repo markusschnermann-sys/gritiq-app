@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GritIQ — Offline</title>
+  <style>
+    :root {
+      --bg: #0F1117;
+      --card: #1B1F2A;
+      --primary: #FF6B1A;
+      --muted: #8B92A5;
+      --fg: #F4F5F7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 360px;
+    }
+    .icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 0 32px rgba(255,107,26,0.2);
+    }
+    .icon-wrap svg { width: 48px; height: 48px; }
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,107,26,0.12);
+      color: var(--primary);
+      border: 1px solid rgba(255,107,26,0.3);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+    }
+    button:active { opacity: 0.85; }
+    .note {
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-wrap">
+      <!-- GritIQ logo mark -->
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="24" r="13" stroke="#FF6B1A" stroke-width="5" fill="none"/>
+        <path d="M 20 11 A 13 13 0 0 1 31 18 L 27.5 20.5 A 8 8 0 0 0 20 16 Z" fill="#1B1F2A"/>
+        <rect x="27" y="22" width="12" height="4" rx="2" fill="#FF6B1A"/>
+        <circle cx="37" cy="24" r="2" fill="#FF8C42"/>
+      </svg>
+    </div>
+
+    <div class="pill">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="5" y1="3" x2="5" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="5" cy="7" r="0.7" fill="currentColor"/>
+      </svg>
+      Kein Internet
+    </div>
+
+    <h1>Du bist offline</h1>
+    <p>
+      GritIQ läuft auch ohne Verbindung. Deine laufende Session wird lokal gespeichert und automatisch synchronisiert, sobald du wieder online bist.
+    </p>
+
+    <button onclick="window.location.reload()">
+      Erneut versuchen
+    </button>
+
+    <p class="note">Trainingseinträge werden im Hintergrund synchronisiert.</p>
+  </div>
+</body>
+</html>

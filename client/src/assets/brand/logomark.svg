@@ -1,0 +1,19 @@
+<!-- GritIQ Logomark — Primary (dark bg, orange mark)
+     Concept: Geometric G-ring with power-rack crossbar
+     Works at 16px favicon → 1024px app store
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" aria-label="GritIQ">
+  <rect width="100" height="100" rx="22" fill="#1B1F2A"/>
+  <!-- G ring: annular arc, opening on right side (~70deg gap top/bottom) -->
+  <path fill="#FF6B1A" d="
+    M 61.3,19.0
+    A 33,33 0 1,0 61.3,81.0
+    L 57.2,69.7
+    A 21,21 0 1,1 57.2,30.3
+    Z
+  "/>
+  <!-- Crossbar: the tongue of the G, evoking a loaded barbell -->
+  <rect x="57" y="44" width="23" height="12" rx="4" fill="#FF6B1A"/>
+  <!-- Collar accent: subtle highlight on crossbar end -->
+  <rect x="76" y="44" width="5" height="12" rx="2" fill="#FF8C42"/>
+</svg>

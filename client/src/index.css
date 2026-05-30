@@ -1,0 +1,351 @@
+/* CB-04: Self-hosted fonts — avoids Fontshare SameSite cookie block in Firefox */
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-300.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Juggernaut: dark steel surfaces, electric orange accent */
+    --background: 220 14% 10%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 14% 13%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 14% 13%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 25 100% 55%;
+    --primary-foreground: 220 14% 8%;
+
+    --secondary: 220 12% 20%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 220 12% 18%;
+    --muted-foreground: 215 12% 55%;
+
+    --accent: 25 100% 55%;
+    --accent-foreground: 220 14% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 12% 22%;
+    --input: 220 12% 18%;
+    --ring: 25 100% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --color-bg: hsl(220 14% 10%);
+    --color-surface: hsl(220 14% 13%);
+    --color-surface-2: hsl(220 14% 16%);
+    --color-border: hsl(220 12% 22%);
+    --color-text: hsl(210 20% 92%);
+    --color-text-muted: hsl(215 12% 55%);
+    --color-primary: hsl(25 100% 55%);
+    --color-primary-hover: hsl(25 100% 48%);
+    --color-success: hsl(142 76% 45%);
+    --color-warning: hsl(48 96% 53%);
+    --color-error: hsl(0 72% 51%);
+
+    --font-display: 'Clash Grotesk', 'Inter', sans-serif;
+    --font-body: 'Satoshi', 'Inter', sans-serif;
+
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.40);
+  }
+
+  /* The app uses dark mode as default */
+  .dark {
+    --background: 220 14% 10%;
+    --foreground: 210 20% 92%;
+    --card: 220 14% 13%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 14% 13%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 25 100% 55%;
+    --primary-foreground: 220 14% 8%;
+    --secondary: 220 12% 20%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 215 12% 55%;
+    --accent: 25 100% 55%;
+    --accent-foreground: 220 14% 8%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 12% 22%;
+    --input: 220 12% 18%;
+    --ring: 25 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* IOS-11: scroll-behavior:smooth conflicts with JS scrollIntoView on iOS 15 — removed */
+    scroll-padding-top: calc(4rem + env(safe-area-inset-top, 0px));
+  }
+
+  /* IOS-02 / AND-13: Prevent viewport zoom on input focus (font-size must be ≥16px) */
+  @media (max-width: 767px) {
+    input, select, textarea {
+      font-size: 16px;              /* AND-13: Fallback für Chrome < 79 */
+      font-size: max(16px, 1em);   /* Überschreibt in modernen Browsern */
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Satoshi', 'Inter', sans-serif;
+    font-size: var(--text-base);
+    min-height: 100vh;        /* AND-04: Fallback für Chrome < 108 / alte WebViews */
+    min-height: 100dvh;       /* Überschreibt in modernen Browsern */
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Clash Grotesk', 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    overflow-wrap: break-word;  /* AND-10: Fallback für Chrome < 114 */
+    text-wrap: balance;
+  }
+
+  p, li {
+    overflow-wrap: break-word;  /* AND-10: Fallback für Chrome < 117 */
+    text-wrap: pretty;
+    max-width: 72ch;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(25 100% 55%);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: hsl(25 100% 55% / 0.25);
+    color: hsl(210 20% 92%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Safe area for iPhone notch/home indicator */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Juggernaut custom utilities */
+.font-display {
+  font-family: 'Clash Grotesk', 'Inter', sans-serif;
+}
+
+.font-body {
+  font-family: 'Satoshi', 'Inter', sans-serif;
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, hsl(25 100% 55%), hsl(15 100% 48%));
+}
+
+.wave-badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider;
+}
+
+.set-row {
+  @apply flex items-center gap-3 p-3 rounded-lg border border-border bg-card transition-all;
+}
+
+.set-row.completed {
+  @apply border-green-500/30 bg-green-500/5;
+}
+
+.set-row.amrap {
+  @apply border-orange-500/40 bg-orange-500/5;
+}
+
+.readiness-dot {
+  @apply w-3 h-3 rounded-full;
+}
+
+.sidebar-nav-item {
+  @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer;
+}
+
+.sidebar-nav-item:hover {
+  @apply bg-secondary text-foreground;
+}
+
+.sidebar-nav-item.active {
+  @apply bg-primary/15 text-primary;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply h-2 rounded-full overflow-hidden bg-secondary;
+}
+
+.progress-bar-fill {
+  @apply h-full rounded-full gradient-orange transition-all duration-500;
+}
+
+/* Lift card hover */
+.lift-card {
+  @apply relative overflow-hidden rounded-xl border border-border bg-card p-5 cursor-pointer
+         transition-all hover:border-primary/50 hover:shadow-lg;
+}
+
+.lift-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(25 100% 55% / 0.05), transparent);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.lift-card:hover::before {
+  opacity: 1;
+}
+
+/* Stat card */
+.stat-card {
+  @apply rounded-xl border border-border bg-card p-4;
+}
+
+/* RPE badge colors */
+.rpe-low { @apply bg-green-500/20 text-green-400; }
+.rpe-mid { @apply bg-yellow-500/20 text-yellow-400; }
+.rpe-high { @apply bg-orange-500/20 text-orange-400; }
+.rpe-max { @apply bg-red-500/20 text-red-400; }
+
+/* CB-05: Safe-area padding for notch iPhones — mobile only */
+.main-scroll-area {
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+  overscroll-behavior-y: contain;
+}
+@media (min-width: 768px) {
+  .main-scroll-area {
+    padding-bottom: 0;
+    overscroll-behavior-y: auto;
+  }
+}
+
+/* Haptic gesture animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(4px); }
+}
+.animate-shake { animation: shake 0.35s ease-in-out; }
+
+@keyframes pulse-complete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); background: rgba(34,197,94,0.15); }
+  100% { transform: scale(1); }
+}
+.animate-pulse-complete { animation: pulse-complete 0.3s ease-out; }

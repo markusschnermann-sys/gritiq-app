@@ -1,0 +1,12 @@
+<!-- GritIQ Favicon — 16px optimised G mark -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="7" fill="#1B1F2A"/>
+  <path fill="#FF6B1A" d="
+    M 19.6,6.1
+    A 10.5,10.5 0 1,0 19.6,25.9
+    L 18.3,22.2
+    A 6.7,6.7 0 1,1 18.3,9.8
+    Z
+  "/>
+  <rect x="18" y="14" width="7.5" height="4" rx="1.5" fill="#FF6B1A"/>
+</svg>

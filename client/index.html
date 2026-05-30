@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GritIQ — Kraft-Tracker</title>
+    <meta name="description" content="Trainiere mit GritIQ — periodisiertes Krafttraining mit AMRAP-basierter Progression. Auch offline nutzbar." />
+
+    <!-- CB-04: Self-hosted fonts — preload critical weights for render performance -->
+    <link rel="preload" href="./fonts/clash-grotesk-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- PERF-P1: Preload medium weight used for navigation labels and subheadings — FCP −50–80ms -->
+    <link rel="preload" href="./fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+
+    <!-- PWA / mobile meta -->
+    <meta name="theme-color" content="#FF6B1A" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="GritIQ" />
+    <meta name="application-name" content="GritIQ" />
+    <meta name="msapplication-TileColor" content="#FF6B1A" />
+
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+
+    <!-- iOS Splash Screens (apple-touch-startup-image) -->
+    <!-- iPhone 15 Pro Max (1290×2796 @3x = 430×932pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-15-pro-max.png"
+          media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <!-- iPhone 15 Pro / 14 Pro (1179×2556 @3x = 393×852pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-15-pro.png"
+          media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <!-- iPhone 14 / 13 / 12 (1170×2532 @3x = 390×844pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-14.png"
+          media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <!-- iPhone X / XS / 11 Pro (1125×2436 @3x = 375×812pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-x.png"
+          media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <!-- iPhone XR / 11 (828×1792 @2x = 414×896pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-xr.png"
+          media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <!-- iPhone 8 / SE 2nd gen (750×1334 @2x = 375×667pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-8.png"
+          media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <!-- iPhone SE 1st gen (640×1136 @2x = 320×568pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/iphone-se.png"
+          media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <!-- iPad Pro 12.9" (2048×2732 @2x = 1024×1366pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/ipad-pro-12.9.png"
+          media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <!-- iPad Pro 11" (1668×2388 @2x = 834×1194pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/ipad-pro-11.png"
+          media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <!-- iPad 9th gen (1536×2048 @2x = 768×1024pt) -->
+    <link rel="apple-touch-startup-image"
+          href="./splash/ipad-9.png"
+          media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+
+    <!-- OG -->
+    <meta property="og:title" content="GritIQ Kraft-Tracker" />
+    <meta property="og:description" content="GritIQ — dein intelligenter Kraft-Tracker als vollständige Web-App. Offline nutzbar." />
+    <meta property="og:type" content="website" />
+
+    <!-- P8: Canonical URL (absolute URL required — relative paths are intercepted by Vite bundler) -->
+    <!-- Replace with your actual deployed domain before going to production -->
+    <link rel="canonical" href="https://www.perplexity.ai/computer/a/gritiq-kraft-tracker-o6hBGiG0TfefyYrNLKzJGw" />
+
+    <!-- Favicon (SVG, Lighthouse-visible) -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

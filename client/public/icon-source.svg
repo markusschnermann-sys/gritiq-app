@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='none'>
+  <rect width='512' height='512' rx='112' fill='#1B1F2A'/>
+  <circle cx='220' cy='256' r='140' stroke='#FF6B1A' stroke-width='56' fill='none'/>
+  <!-- cut right arc segment -->
+  <path d='M 220 116 A 140 140 0 0 1 340.7 196 L 299.3 219.5 A 84 84 0 0 0 220 172 Z' fill='#1B1F2A'/>
+  <!-- collar bar -->
+  <rect x='284' y='234' width='128' height='44' rx='22' fill='#FF6B1A'/>
+  <circle cx='390' cy='256' r='22' fill='#FF8C42'/>
+</svg>
